@@ -37,7 +37,6 @@ export default function QuestionsAnswers(props) {
       return newValues;
     });
   }
-  // props.dataHandler(newValues);
 
   return (
     <div>

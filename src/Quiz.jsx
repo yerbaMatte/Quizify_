@@ -40,19 +40,24 @@ export default function Quiz() {
 
   let userAnswers = [];
 
-  function dataHandler(data) {
-    userAnswers.push(data);
-    console.log(userAnswers);
+  function getData(x) {
+    console.log(x);
+    console.log('pierwsza');
+  }
+
+  function dataHandler(c) {
+    console.log(c);
+    console.log('druga');
   }
 
   return (
     isQuizLoaded && (
       <div className='container'>
-        <QuestionsAnswers data={quiz[0]} dataHandler={dataHandler} />
-        <QuestionsAnswers data={quiz[1]} dataHandler={dataHandler} />
-        <QuestionsAnswers data={quiz[2]} dataHandler={dataHandler} />
-        <QuestionsAnswers data={quiz[3]} dataHandler={dataHandler} />
-        <QuestionsAnswers data={quiz[4]} dataHandler={dataHandler} />
+        <QuestionsAnswers data={quiz[0]} dataHandler={(x) => getData(x)} />
+        <QuestionsAnswers data={quiz[1]} dataHandler={() => getData} />
+        <QuestionsAnswers data={quiz[2]} dataHandler={() => getData} />
+        <QuestionsAnswers data={quiz[3]} dataHandler={() => getData} />
+        <QuestionsAnswers data={quiz[4]} dataHandler={() => getData} />
         <button onClick={dataHandler} className='check-btn'>
           Check your answers!
         </button>
