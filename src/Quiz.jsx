@@ -40,27 +40,15 @@ export default function Quiz() {
 
   let userAnswers = [];
 
-  function getData(x) {
-    console.log(x);
-    console.log('pierwsza');
-  }
-
-  function dataHandler(c) {
-    console.log(c);
-    console.log('druga');
-  }
-
   return (
     isQuizLoaded && (
       <div className='container'>
-        <QuestionsAnswers data={quiz[0]} dataHandler={(x) => getData(x)} />
-        <QuestionsAnswers data={quiz[1]} dataHandler={() => getData} />
-        <QuestionsAnswers data={quiz[2]} dataHandler={() => getData} />
-        <QuestionsAnswers data={quiz[3]} dataHandler={() => getData} />
-        <QuestionsAnswers data={quiz[4]} dataHandler={() => getData} />
-        <button onClick={dataHandler} className='check-btn'>
-          Check your answers!
-        </button>
+        <QuestionsAnswers data={quiz[0]} />
+        <QuestionsAnswers data={quiz[1]} />
+        <QuestionsAnswers data={quiz[2]} />
+        <QuestionsAnswers data={quiz[3]} />
+        <QuestionsAnswers data={quiz[4]} />
+        <button className='check-btn'>Check your answers!</button>
       </div>
     )
   );
