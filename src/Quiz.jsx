@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import QuestionsAnswers from './QuestionsAnswers';
+import { nanoid } from 'nanoid';
 
 export default function Quiz() {
   const [quiz, setQuiz] = useState([]);
@@ -38,17 +39,60 @@ export default function Quiz() {
       );
   }, []);
 
-  let userAnswers = [];
+  const answers = {};
+  const [result, setResult] = useState(false);
+
+  const updateAnswer = (questionId, answer) => {
+    answers[questionId] = answer;
+    console.log(answers);
+  };
+
+  function checkResults() {
+    if (Object.keys(answers).length === 5) {
+      setResult((prev) => !prev);
+      console.log('5 answers have been selected');
+    } else {
+      console.log('select all answers');
+    }
+  }
 
   return (
     isQuizLoaded && (
       <div className='container'>
-        <QuestionsAnswers data={quiz[0]} />
-        <QuestionsAnswers data={quiz[1]} />
-        <QuestionsAnswers data={quiz[2]} />
-        <QuestionsAnswers data={quiz[3]} />
-        <QuestionsAnswers data={quiz[4]} />
-        <button className='check-btn'>Check your answers!</button>
+        <QuestionsAnswers
+          data={quiz[0]}
+          questionID={'A'}
+          updateAnswer={updateAnswer}
+          result={result}
+        />
+        <QuestionsAnswers
+          data={quiz[1]}
+          questionID={'B'}
+          updateAnswer={updateAnswer}
+          result={result}
+        />
+        <QuestionsAnswers
+          data={quiz[2]}
+          questionID={'C'}
+          updateAnswer={updateAnswer}
+          result={result}
+        />
+        <QuestionsAnswers
+          data={quiz[3]}
+          questionID={'D'}
+          updateAnswer={updateAnswer}
+          result={result}
+        />
+        <QuestionsAnswers
+          data={quiz[4]}
+          questionID={'E'}
+          updateAnswer={updateAnswer}
+          result={result}
+        />
+
+        <button onClick={checkResults} className='check-btn'>
+          Check your answers!
+        </button>
       </div>
     )
   );

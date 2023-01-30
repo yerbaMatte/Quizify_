@@ -34,6 +34,14 @@ export default function QuestionsAnswers(props) {
       });
       const SelectedAnswer = newValues.filter((x) => x.isSelected)[0];
 
+      props.updateAnswer(props.questionID, SelectedAnswer.value);
+
+      if (props.result) {
+        if (SelectedAnswer.value) {
+          console.log(SelectedAnswer);
+        }
+      }
+
       return newValues;
     });
   }
