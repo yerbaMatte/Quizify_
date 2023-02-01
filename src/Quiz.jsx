@@ -59,8 +59,6 @@ export default function Quiz() {
     }
   }
 
-  console.log(result);
-
   return (
     isQuizLoaded && (
       <div className='container'>

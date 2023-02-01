@@ -89,6 +89,14 @@ body {
   background-color: rgba(22, 102, 163, 0.321);
 }
 
+.wrong {
+  background-color: rgba(244, 1, 1, 0.911);
+}
+
+.correct {
+  background-color: rgba(93, 246, 10, 0.875);
+}
+
 .check-btn {
   border: none;
   padding: 12px 40px 12px 40px;

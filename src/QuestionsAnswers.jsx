@@ -41,9 +41,9 @@ export default function QuestionsAnswers(props) {
     });
   }
 
-  let selectedStyle = 'answer selected-answer';
+  React.useEffect(() => {}, [result]);
 
-  React.useEffect(() => console.log('X'), [props.result]);
+  let selectedStyle = 'answer selected-answer';
 
   return (
     <div>
