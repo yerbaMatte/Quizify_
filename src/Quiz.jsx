@@ -40,7 +40,7 @@ export default function Quiz() {
   }, []);
 
   const answers = {};
-  const [result, setResult] = useState(false);
+  const [result, setResult] = useState('');
 
   const updateAnswer = (questionId, answer) => {
     answers[questionId] = answer;
@@ -49,12 +49,17 @@ export default function Quiz() {
 
   function checkResults() {
     if (Object.keys(answers).length === 5) {
-      setResult((prev) => !prev);
-      console.log('5 answers have been selected');
+      setResult(
+        `${
+          Object.values(answers).filter((x) => x === true).length
+        }/5 correct answers`
+      );
     } else {
       console.log('select all answers');
     }
   }
+
+  console.log(result);
 
   return (
     isQuizLoaded && (

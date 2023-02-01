@@ -3,6 +3,7 @@ import { nanoid } from 'nanoid';
 
 export default function QuestionsAnswers(props) {
   const { ask, wrongAnswers, correctAnswer } = props.data;
+  const { result } = props;
 
   // Get array of mixed answers - strings
   const mixedAnswers = [...wrongAnswers, correctAnswer].sort(
@@ -36,15 +37,13 @@ export default function QuestionsAnswers(props) {
 
       props.updateAnswer(props.questionID, SelectedAnswer.value);
 
-      if (props.result) {
-        if (SelectedAnswer.value) {
-          console.log(SelectedAnswer);
-        }
-      }
-
       return newValues;
     });
   }
+
+  let selectedStyle = 'answer selected-answer';
+
+  React.useEffect(() => console.log('X'), [props.result]);
 
   return (
     <div>
@@ -54,44 +53,28 @@ export default function QuestionsAnswers(props) {
           <div
             onClick={selectAnswer}
             id={isSelectedState[0].id}
-            className={
-              isSelectedState[0].isSelected
-                ? 'answer selected-answer'
-                : 'answer'
-            }
+            className={isSelectedState[0].isSelected ? selectedStyle : 'answer'}
           >
             {isSelectedState[0].answer}
           </div>
           <div
             onClick={selectAnswer}
             id={isSelectedState[1].id}
-            className={
-              isSelectedState[1].isSelected
-                ? 'answer selected-answer'
-                : 'answer'
-            }
+            className={isSelectedState[1].isSelected ? selectedStyle : 'answer'}
           >
             {isSelectedState[1].answer}
           </div>
           <div
             onClick={selectAnswer}
             id={isSelectedState[2].id}
-            className={
-              isSelectedState[2].isSelected
-                ? 'answer selected-answer'
-                : 'answer'
-            }
+            className={isSelectedState[2].isSelected ? selectedStyle : 'answer'}
           >
             {isSelectedState[2].answer}
           </div>
           <div
             onClick={selectAnswer}
             id={isSelectedState[3].id}
-            className={
-              isSelectedState[3].isSelected
-                ? 'answer selected-answer'
-                : 'answer'
-            }
+            className={isSelectedState[3].isSelected ? selectedStyle : 'answer'}
           >
             {isSelectedState[3].answer}
           </div>
