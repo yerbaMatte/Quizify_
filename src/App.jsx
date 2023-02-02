@@ -3,7 +3,7 @@ import Welcome from './Welcome';
 import Quiz from './Quiz';
 
 export default function App() {
-  const [isStarted, setIsStarted] = useState(true);
+  const [isStarted, setIsStarted] = useState(false);
 
   function clickHandler() {
     setIsStarted((prev) => !prev);

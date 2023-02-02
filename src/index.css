@@ -90,11 +90,11 @@ body {
 }
 
 .wrong {
-  background-color: rgba(244, 1, 1, 0.911);
+  background-color: rgba(244, 1, 1, 0.726);
 }
 
 .correct {
-  background-color: rgba(93, 246, 10, 0.875);
+  background-color: rgba(93, 246, 10, 0.636);
 }
 
 .check-btn {

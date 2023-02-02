@@ -41,6 +41,7 @@ export default function Quiz() {
 
   const answers = {};
   const [result, setResult] = useState('');
+  console.log(result);
 
   const updateAnswer = (questionId, answer) => {
     answers[questionId] = answer;
@@ -48,14 +49,12 @@ export default function Quiz() {
   };
 
   function checkResults() {
+    let numberOfTrue = Object.values(answers).filter((x) => x === true).length;
+
     if (Object.keys(answers).length === 5) {
-      setResult(
-        `${
-          Object.values(answers).filter((x) => x === true).length
-        }/5 correct answers`
-      );
+      setResult(`${numberOfTrue}/5 correct answers`);
     } else {
-      console.log('select all answers');
+      console.log('Select all answers');
     }
   }
 
@@ -92,10 +91,13 @@ export default function Quiz() {
           updateAnswer={updateAnswer}
           result={result}
         />
-
-        <button onClick={checkResults} className='check-btn'>
-          Check your answers!
-        </button>
+        {result.length === 0 ? (
+          <button onClick={checkResults} className='check-btn'>
+            Check your answers!
+          </button>
+        ) : (
+          <h2>Your total score is {result}</h2>
+        )}
       </div>
     )
   );
