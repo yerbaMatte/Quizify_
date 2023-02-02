@@ -41,7 +41,14 @@ export default function QuestionsAnswers(props) {
     });
   }
 
-  React.useEffect(() => {}, [result]);
+  React.useEffect(() => {
+    const id = isSelectedState.filter((x) => x.isSelected)[0]?.id;
+    const element = document.querySelector(`[id="${id}"]`);
+
+    isSelectedState.filter((x) => x.isSelected)[0]?.value
+      ? element?.classList.add('correct')
+      : element?.classList.add('wrong');
+  }, [result]);
 
   let selectedStyle = 'answer selected-answer';
 
