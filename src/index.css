@@ -86,7 +86,8 @@ body {
   cursor: pointer;
 }
 
-.answer:hover {
+.answer:hover,
+.answer:active {
   background-color: rgba(209, 209, 209, 0.09);
 }
 
