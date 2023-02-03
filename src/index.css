@@ -13,7 +13,7 @@ body {
 .container {
   width: 700px;
   height: 850px;
-  background-image: url('./public/intro-page.png');
+  background-image: url('../public/intro-page.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
