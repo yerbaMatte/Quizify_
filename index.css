@@ -13,7 +13,7 @@ body {
 .container {
   width: 700px;
   height: 850px;
-  background-image: url('intro-page.png');
+  background-image: url('./public/intro-page.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -83,6 +83,7 @@ body {
   display: inline-block;
   margin-right: 12px;
   margin-bottom: 12px;
+  cursor: pointer;
 }
 
 .selected-answer {
