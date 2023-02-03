@@ -86,11 +86,6 @@ body {
   cursor: pointer;
 }
 
-.answer:hover,
-.answer:active {
-  background-color: rgba(209, 209, 209, 0.09);
-}
-
 .selected-answer {
   background-color: rgba(22, 102, 163, 0.321);
 }
