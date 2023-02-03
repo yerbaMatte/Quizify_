@@ -18,9 +18,7 @@ export default function Quiz(props) {
 
   React.useEffect(
     function () {
-      fetch(
-        'https://opentdb.com/api.php?amount=5&category=14&difficulty=easy&type=multiple'
-      )
+      fetch(props.data)
         .then((x) => x.json())
         .then((data) =>
           setQuiz(

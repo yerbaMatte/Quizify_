@@ -128,3 +128,11 @@ body {
   border-radius: 6px;
   padding: 2px 12px 2px 12px;
 }
+
+.select {
+  width: 50%;
+  padding: 12px;
+  margin: 12px;
+  margin-bottom: 28px;
+  border-radius: 12px;
+}

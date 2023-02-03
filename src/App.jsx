@@ -4,15 +4,18 @@ import Quiz from './Quiz';
 
 export default function App() {
   const [isStarted, setIsStarted] = useState(false);
+  const [urlFetch, setUrlFetch] = useState('');
 
-  function clickHandler() {
+  function clickHandler(data) {
     setIsStarted((prev) => !prev);
+    setUrlFetch(data);
+    console.log(urlFetch);
   }
 
   return (
     <React.Fragment>
       {isStarted ? (
-        <Quiz handleClick={clickHandler} />
+        <Quiz data={urlFetch} handleClick={clickHandler} />
       ) : (
         <Welcome handleClick={clickHandler} />
       )}
