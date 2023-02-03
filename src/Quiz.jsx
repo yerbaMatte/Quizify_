@@ -27,7 +27,8 @@ export default function Quiz(props) {
                 unEscape(x)
               );
               const formatCorrect = unEscape(singleSet.correct_answer);
-              setIsQuizLoaded((prev) => !prev);
+              setIsQuizLoaded(true);
+
               return {
                 ask: [unEscape(singleSet.question)],
                 wrongAnswers: formatBadAnswers,

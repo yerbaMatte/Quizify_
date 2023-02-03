@@ -9,8 +9,8 @@ export default function App() {
   function clickHandler(data) {
     setIsStarted((prev) => !prev);
     setUrlFetch(data);
-    console.log(urlFetch);
   }
+  console.log(urlFetch);
 
   return (
     <React.Fragment>
