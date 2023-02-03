@@ -20,25 +20,26 @@ export default function QuestionsAnswers(props) {
   const [isSelectedState, setIsSelectedState] = useState(isSelectedObjects);
 
   function selectAnswer(e) {
-    setIsSelectedState((prev) => {
-      const newValues = prev.map((answer) => {
-        if (answer.id === e.target.id) {
-          return {
-            answer: answer.answer,
-            isSelected: true,
-            id: answer.id,
-            value: answer.value,
-          };
-        } else {
-          return { ...answer, isSelected: false };
-        }
+    //After user selected answers and confirmed with the submit button, selecting options is turned off
+    if (!result) {
+      setIsSelectedState((prev) => {
+        const newValues = prev.map((answer) => {
+          if (answer.id === e.target.id) {
+            return {
+              answer: answer.answer,
+              isSelected: true,
+              id: answer.id,
+              value: answer.value,
+            };
+          } else {
+            return { ...answer, isSelected: false };
+          }
+        });
+        const SelectedAnswer = newValues.filter((x) => x.isSelected)[0];
+        props.updateAnswer(props.questionID, SelectedAnswer.value);
+        return newValues;
       });
-      const SelectedAnswer = newValues.filter((x) => x.isSelected)[0];
-
-      props.updateAnswer(props.questionID, SelectedAnswer.value);
-
-      return newValues;
-    });
+    }
   }
 
   React.useEffect(() => {

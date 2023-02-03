@@ -10,6 +10,12 @@ export default function App() {
   }
 
   return (
-    <div>{isStarted ? <Quiz /> : <Welcome handleClick={clickHandler} />}</div>
+    <React.Fragment>
+      {isStarted ? (
+        <Quiz handleClick={clickHandler} />
+      ) : (
+        <Welcome handleClick={clickHandler} />
+      )}
+    </React.Fragment>
   );
 }
