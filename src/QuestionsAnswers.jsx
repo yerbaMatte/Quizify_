@@ -54,7 +54,7 @@ export default function QuestionsAnswers(props) {
   let selectedStyle = 'answer selected-answer';
 
   return (
-    <div>
+    <div className='container-child'>
       <div className='question-frame'>
         <div className='question-cont'>
           <h2 className='question'>{ask}</h2>
