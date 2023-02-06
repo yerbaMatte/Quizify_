@@ -20,7 +20,6 @@ export default function QuestionsAnswers(props) {
   const [isSelectedState, setIsSelectedState] = useState(isSelectedObjects);
 
   function selectAnswer(e) {
-    //After user selected answers and confirmed with the submit button, selecting options is turned off
     if (!result) {
       setIsSelectedState((prev) => {
         const newValues = prev.map((answer) => {
