@@ -16,30 +16,30 @@ export default function Quiz(props) {
     return htmlStr;
   }
 
-  React.useEffect(
-    function () {
-      fetch(props.data)
-        .then((x) => x.json())
-        .then((data) =>
-          setQuiz(
-            data.results.map((singleSet) => {
-              const formatBadAnswers = singleSet.incorrect_answers.map((x) =>
-                unEscape(x)
-              );
-              const formatCorrect = unEscape(singleSet.correct_answer);
-              setIsQuizLoaded(true);
+  // React.useEffect(
+  //   function () {
+  //     fetch(props.data)
+  //       .then((x) => x.json())
+  //       .then((data) =>
+  //         setQuiz(
+  //           data.results.map((singleSet) => {
+  //             const formatBadAnswers = singleSet.incorrect_answers.map((x) =>
+  //               unEscape(x)
+  //             );
+  //             const formatCorrect = unEscape(singleSet.correct_answer);
+  //             setIsQuizLoaded(true);
 
-              return {
-                ask: [unEscape(singleSet.question)],
-                wrongAnswers: formatBadAnswers,
-                correctAnswer: formatCorrect,
-              };
-            })
-          )
-        );
-    },
-    [restartApp]
-  );
+  //             return {
+  //               ask: [unEscape(singleSet.question)],
+  //               wrongAnswers: formatBadAnswers,
+  //               correctAnswer: formatCorrect,
+  //             };
+  //           })
+  //         )
+  //       );
+  //   },
+  //   [restartApp]
+  // );
 
   const answers = {};
   const [result, setResult] = useState('');
