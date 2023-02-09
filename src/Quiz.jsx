@@ -1,45 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useQuery } from 'react-query';
 import QuestionsAnswers from './QuestionsAnswers';
+import { formatData } from './helperFunctions/formatData';
 
 export default function Quiz(props) {
   const [quiz, setQuiz] = useState([]);
   const [isQuizLoaded, setIsQuizLoaded] = useState(false);
   const [restartApp, setRestartApp] = useState(false);
 
-  function unEscape(htmlStr) {
-    htmlStr = htmlStr.replace(/&lt;/g, '<');
-    htmlStr = htmlStr.replace(/&gt;/g, '>');
-    htmlStr = htmlStr.replace(/&quot;/g, '"');
-    htmlStr = htmlStr.replace(/&#039;/g, "'");
-    htmlStr = htmlStr.replace(/&amp;/g, '&');
-    htmlStr = htmlStr.replace(/&ntilde/g, 'ñ');
-    return htmlStr;
-  }
-
-  React.useEffect(
+  useEffect(
     function () {
       fetch(props.data)
         .then((x) => x.json())
         .then((data) =>
-          setQuiz(
-            data.results.map((singleSet) => {
-              const formatBadAnswers = singleSet.incorrect_answers.map((x) =>
-                unEscape(x)
-              );
-              const formatCorrect = unEscape(singleSet.correct_answer);
-              setIsQuizLoaded(true);
-
-              return {
-                ask: [unEscape(singleSet.question)],
-                wrongAnswers: formatBadAnswers,
-                correctAnswer: formatCorrect,
-              };
-            })
-          )
+          setQuiz(() => {
+            console.log(isQuizLoaded);
+            return formatData(data, setIsQuizLoaded);
+          })
         );
     },
     [restartApp]
   );
+
+  console.log(quiz);
+
+  // const { data, error, isLoading } = useQuery('fetchQuizData', getData);
+
+  // const getData = async () => {
+  //   const res = await fetch(props.data);
+  //   return res.json();
+  // };
 
   const answers = {};
   const [result, setResult] = useState('');
