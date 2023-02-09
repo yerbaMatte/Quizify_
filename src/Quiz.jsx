@@ -37,7 +37,7 @@ export default function Quiz(props) {
     props.handleClick();
   };
 
-  const questionAnswersSet = quiz?.map((QA, ind) => (
+  const questionAnswersSet = quiz.map((QA, ind) => (
     <QuestionsAnswers
       data={quiz[ind]}
       questionID={ind}
