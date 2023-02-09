@@ -1,4 +1,6 @@
-export const formatData = (data, setIsQuizLoaded, isQuizLoaded) => {
+import axios from 'axios';
+
+export const formatData = (data) => {
   function unEscape(htmlStr) {
     htmlStr = htmlStr.replace(/&lt;/g, '<');
     htmlStr = htmlStr.replace(/&gt;/g, '>');
@@ -15,13 +17,18 @@ export const formatData = (data, setIsQuizLoaded, isQuizLoaded) => {
     );
     const formatCorrect = unEscape(singleSet.correct_answer);
 
-    setIsQuizLoaded(true);
-
     return {
       ask: [unEscape(singleSet.question)],
       wrongAnswers: formatBadAnswers,
       correctAnswer: formatCorrect,
     };
   });
+
   return results;
+};
+
+export const fetchAxios = async (data) => {
+  const response = await axios.get(data);
+  const quizData = response.data;
+  return quizData;
 };

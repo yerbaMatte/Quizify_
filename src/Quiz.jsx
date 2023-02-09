@@ -1,35 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery } from 'react-query';
 import QuestionsAnswers from './QuestionsAnswers';
-import { formatData } from './helperFunctions/formatData';
+import { formatData, fetchAxios } from './helperFunctions/helperFunctions';
 
 export default function Quiz(props) {
-  const [quiz, setQuiz] = useState([]);
-  const [isQuizLoaded, setIsQuizLoaded] = useState(false);
+  let quiz = [];
   const [restartApp, setRestartApp] = useState(false);
 
-  useEffect(
-    function () {
-      fetch(props.data)
-        .then((x) => x.json())
-        .then((data) =>
-          setQuiz(() => {
-            console.log(isQuizLoaded);
-            return formatData(data, setIsQuizLoaded);
-          })
-        );
-    },
-    [restartApp]
+  const { data, isSuccess } = useQuery('quizData', () =>
+    fetchAxios(props.data)
   );
 
-  console.log(quiz);
-
-  // const { data, error, isLoading } = useQuery('fetchQuizData', getData);
-
-  // const getData = async () => {
-  //   const res = await fetch(props.data);
-  //   return res.json();
-  // };
+  if (isSuccess) {
+    quiz = formatData(data);
+  }
 
   const answers = {};
   const [result, setResult] = useState('');
@@ -53,39 +37,20 @@ export default function Quiz(props) {
     props.handleClick();
   };
 
+  const questionAnswersSet = quiz?.map((QA, ind) => (
+    <QuestionsAnswers
+      data={quiz[ind]}
+      questionID={ind}
+      updateAnswer={updateAnswer}
+      result={result}
+      key={ind}
+    />
+  ));
+
   return (
-    isQuizLoaded && (
+    isSuccess && (
       <div className='container'>
-        <QuestionsAnswers
-          data={quiz[0]}
-          questionID={'A'}
-          updateAnswer={updateAnswer}
-          result={result}
-        />
-        <QuestionsAnswers
-          data={quiz[1]}
-          questionID={'B'}
-          updateAnswer={updateAnswer}
-          result={result}
-        />
-        <QuestionsAnswers
-          data={quiz[2]}
-          questionID={'C'}
-          updateAnswer={updateAnswer}
-          result={result}
-        />
-        <QuestionsAnswers
-          data={quiz[3]}
-          questionID={'D'}
-          updateAnswer={updateAnswer}
-          result={result}
-        />
-        <QuestionsAnswers
-          data={quiz[4]}
-          questionID={'E'}
-          updateAnswer={updateAnswer}
-          result={result}
-        />
+        {questionAnswersSet}
         {result.length === 0 ? (
           <button onClick={checkResults} className='check-btn'>
             Check your answers!

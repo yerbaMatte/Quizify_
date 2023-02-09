@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { QueryClient, QueryClientProvider, useQuery } from 'react-query';
 import Welcome from './Welcome';
 import Quiz from './Quiz';
+
+const queryClient = new QueryClient();
 
 export default function App() {
   const [isStarted, setIsStarted] = useState(false);
@@ -10,15 +13,16 @@ export default function App() {
     setIsStarted((prev) => !prev);
     setUrlFetch(data);
   }
-  console.log(urlFetch);
 
   return (
-    <React.Fragment>
-      {isStarted ? (
-        <Quiz data={urlFetch} handleClick={clickHandler} />
-      ) : (
-        <Welcome handleClick={clickHandler} />
-      )}
-    </React.Fragment>
+    <QueryClientProvider client={queryClient}>
+      <React.Fragment>
+        {isStarted ? (
+          <Quiz data={urlFetch} handleClick={clickHandler} />
+        ) : (
+          <Welcome handleClick={clickHandler} />
+        )}
+      </React.Fragment>
+    </QueryClientProvider>
   );
 }
