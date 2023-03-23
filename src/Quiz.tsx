@@ -3,7 +3,7 @@ import { useQuery } from 'react-query';
 import QuestionsAnswers from './QuestionsAnswers';
 import { formatData, fetchAxios } from './helperFunctions/helperFunctions';
 
-export default function Quiz(props) {
+export default function Quiz(props): JSX.Element {
   let quiz = [];
   const [restartApp, setRestartApp] = useState(false);
 
@@ -47,23 +47,23 @@ export default function Quiz(props) {
     />
   ));
 
-  return (
-    isSuccess && (
-      <div className='container'>
-        {questionAnswersSet}
-        {result.length === 0 ? (
-          <button onClick={checkResults} className='check-btn'>
-            Check your answers!
+  return isSuccess ? (
+    <div className='container'>
+      {questionAnswersSet}
+      {result.length === 0 ? (
+        <button onClick={checkResults} className='check-btn'>
+          Check your answers!
+        </button>
+      ) : (
+        <div className='btn-container'>
+          <h2 className='score'>Your total score is {result}</h2>
+          <button className='check-btn' onClick={getNewQuiz}>
+            GET NEW QUIZ
           </button>
-        ) : (
-          <div className='btn-container'>
-            <h2 className='score'>Your total score is {result}</h2>
-            <button className='check-btn' onClick={getNewQuiz}>
-              GET NEW QUIZ
-            </button>
-          </div>
-        )}
-      </div>
-    )
+        </div>
+      )}
+    </div>
+  ) : (
+    <p>Loading...</p>
   );
 }
