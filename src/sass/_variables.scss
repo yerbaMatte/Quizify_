@@ -1,0 +1,34 @@
+// theme colors
+// -----    UI   -----
+$base-background-color: radial-gradient(
+  circle,
+  rgba(85, 88, 91, 0.8057816876750701) 0%,
+  rgba(92, 105, 120, 1) 100%
+) !default;
+
+$base-background-image-path: url('../public/intro-page.png') !default;
+
+// ----- BUTTONS -----
+$color-start-btn: #ff6347;
+$color-answer-btn: #d1d1d15c;
+$color-selected-answer-btn: #1666a352;
+$color-correct-answer-btn: #5df60aa2;
+$color-wrong-answer-btn: #f40101b9;
+
+// spacing
+$base-padding: 0.75rem !default;
+$base-margin: 0.75rem !default;
+
+// borders
+$base-border-thickness: 1px !default;
+$base-border-radius: 20px !default;
+
+// box-shadow
+$base-box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1) !default;
+
+// font sizes
+$base-font-size: 1rem !default;
+$font-size-sm: $base-font-size * 0.75 !default;
+$font-size-lg: $base-font-size * 1.5 !default;
+$font-size-xl: $base-font-size * 2 !default;
+$font-size-xxl: $base-font-size * 3 !default;

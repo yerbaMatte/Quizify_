@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import QuestionsAnswers from './QuestionsAnswers';
 import { formatData, fetchAxios } from './helperFunctions/helperFunctions';
@@ -48,16 +48,16 @@ export default function Quiz(props): JSX.Element {
   ));
 
   return isSuccess ? (
-    <div className='container'>
+    <div className="container">
       {questionAnswersSet}
       {result.length === 0 ? (
-        <button onClick={checkResults} className='check-btn'>
+        <button onClick={checkResults} className="check-btn">
           Check your answers!
         </button>
       ) : (
-        <div className='btn-container'>
-          <h2 className='score'>Your total score is {result}</h2>
-          <button className='check-btn' onClick={getNewQuiz}>
+        <div className="btn-container">
+          <h2 className="score">Your total score is {result}</h2>
+          <button className="check-btn" onClick={getNewQuiz}>
             GET NEW QUIZ
           </button>
         </div>
