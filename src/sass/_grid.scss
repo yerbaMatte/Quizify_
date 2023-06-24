@@ -1,12 +1,8 @@
 // base layout classes
-#root {
-  height: 100vh;
-  box-sizing: border-box;
-}
 
 .container {
   width: 100%;
-  max-width: 50rem;
+  max-width: 45rem;
   box-sizing: border-box;
 }
 
@@ -20,5 +16,14 @@ $layout-values: flex-start, flex-end, center, space-between, space-around;
 @each $val in $layout-values {
   .justify-#{$val} {
     justify-content: $val;
+  }
+}
+
+// row directions classes
+$row-directions: row, row-reverse, column, column-reverse;
+
+@each $val in $row-directions {
+  .flex-#{$val} {
+    flex-direction: $val;
   }
 }

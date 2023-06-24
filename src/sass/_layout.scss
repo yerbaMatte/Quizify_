@@ -1,0 +1,8 @@
+.bg-layout {
+  background-image: url('../public/intro-page.png');
+  background-position: center;
+  background-size: cover;
+  border-radius: $base-border-radius;
+  box-shadow: 2px 5px 24px -2px $shadow;
+  padding: $base-padding * 2;
+}

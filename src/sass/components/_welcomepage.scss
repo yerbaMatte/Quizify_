@@ -1,0 +1,29 @@
+.bg-layout {
+  h1 {
+    font-size: $font-size-xxl * 1.25;
+    font-weight: 300;
+    margin: $base-margin;
+  }
+  p {
+    font-size: $font-size-lg * 0.7;
+    text-transform: uppercase;
+    letter-spacing: $base-letter-spacing;
+    text-align: center;
+  }
+  .title {
+    margin: $base-margin;
+    margin-top: 4rem;
+    h1 {
+      text-align: center;
+    }
+  }
+  .options {
+    margin-bottom: 6rem;
+  }
+  select {
+    padding: 1rem;
+    border-radius: $base-border-radius;
+    margin: $base-margin;
+    cursor: pointer;
+  }
+}

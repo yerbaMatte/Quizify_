@@ -1,0 +1,15 @@
+@mixin btn($color: tomato) {
+  border: none;
+  padding: 1rem 5rem 1rem 5rem;
+  border-radius: $base-border-radius;
+  font-size: $font-size-lg;
+  color: #fff;
+  cursor: pointer;
+  background-color: $color;
+}
+
+.start-btn {
+  &:hover {
+    background-color: teal;
+  }
+}

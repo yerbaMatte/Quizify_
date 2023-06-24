@@ -48,7 +48,7 @@ export default function Quiz(props): JSX.Element {
   ));
 
   return isSuccess ? (
-    <div className="container">
+    <div className="container row flex-column bg-layout justify-space-around">
       {questionAnswersSet}
       {result.length === 0 ? (
         <button onClick={checkResults} className="check-btn">

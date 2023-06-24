@@ -5,10 +5,14 @@
 @import 'base';
 @import 'breakpoints';
 @import 'grid';
+@import 'layout';
 
 // colors
 
 // components (button, card, navbar etc)
+@import './components/welcomepage';
+@import './components/button';
+@import './components/answer';
 
 // utilities (margin, padding, opacity, etc)
 @import 'utilities';

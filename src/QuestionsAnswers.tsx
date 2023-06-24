@@ -53,39 +53,35 @@ export default function QuestionsAnswers(props) {
   let selectedStyle = 'answer selected-answer';
 
   return (
-    <div className='container-child'>
-      <div className='question-frame'>
-        <div className='question-cont'>
-          <h2 className='question'>{ask}</h2>
-          <div
-            onClick={selectAnswer}
-            id={isSelectedState[0].id}
-            className={isSelectedState[0].isSelected ? selectedStyle : 'answer'}
-          >
-            {isSelectedState[0].answer}
-          </div>
-          <div
-            onClick={selectAnswer}
-            id={isSelectedState[1].id}
-            className={isSelectedState[1].isSelected ? selectedStyle : 'answer'}
-          >
-            {isSelectedState[1].answer}
-          </div>
-          <div
-            onClick={selectAnswer}
-            id={isSelectedState[2].id}
-            className={isSelectedState[2].isSelected ? selectedStyle : 'answer'}
-          >
-            {isSelectedState[2].answer}
-          </div>
-          <div
-            onClick={selectAnswer}
-            id={isSelectedState[3].id}
-            className={isSelectedState[3].isSelected ? selectedStyle : 'answer'}
-          >
-            {isSelectedState[3].answer}
-          </div>
-        </div>
+    <div className="container-child">
+      <h2 className="question">{ask}</h2>
+      <div
+        onClick={selectAnswer}
+        id={isSelectedState[0].id}
+        className={isSelectedState[0].isSelected ? selectedStyle : 'answer'}
+      >
+        {isSelectedState[0].answer}
+      </div>
+      <div
+        onClick={selectAnswer}
+        id={isSelectedState[1].id}
+        className={isSelectedState[1].isSelected ? selectedStyle : 'answer'}
+      >
+        {isSelectedState[1].answer}
+      </div>
+      <div
+        onClick={selectAnswer}
+        id={isSelectedState[2].id}
+        className={isSelectedState[2].isSelected ? selectedStyle : 'answer'}
+      >
+        {isSelectedState[2].answer}
+      </div>
+      <div
+        onClick={selectAnswer}
+        id={isSelectedState[3].id}
+        className={isSelectedState[3].isSelected ? selectedStyle : 'answer'}
+      >
+        {isSelectedState[3].answer}
       </div>
     </div>
   );
