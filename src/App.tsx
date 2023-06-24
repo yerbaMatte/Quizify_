@@ -10,8 +10,8 @@ export default function App() {
   const [urlFetch, setUrlFetch] = useState('');
 
   function clickHandler(data) {
-    setIsStarted((prev) => !prev);
     setUrlFetch(data);
+    setIsStarted((prev) => !prev);
   }
 
   return (

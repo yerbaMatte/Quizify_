@@ -6,7 +6,6 @@ import { formatStrings } from './services/formatStrings';
 
 export default function Quiz(props): JSX.Element {
   let quiz = [];
-  const [restartApp, setRestartApp] = useState(false);
 
   const { data, isSuccess } = useQuery('quizData', () =>
     getQuizData(props.data)
@@ -34,7 +33,6 @@ export default function Quiz(props): JSX.Element {
   }
 
   const getNewQuiz = () => {
-    setRestartApp((prev) => !prev);
     props.handleClick();
   };
 
