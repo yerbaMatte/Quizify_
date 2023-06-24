@@ -6,17 +6,15 @@ import Quiz from './Quiz';
 const queryClient = new QueryClient();
 
 export default function App() {
-  const [isStarted, setIsStarted] = useState(false);
   const [urlFetch, setUrlFetch] = useState('');
 
   function clickHandler(data) {
     setUrlFetch(data);
-    setIsStarted((prev) => !prev);
   }
 
   return (
     <QueryClientProvider client={queryClient}>
-      {isStarted ? (
+      {urlFetch ? (
         <Quiz data={urlFetch} handleClick={clickHandler} />
       ) : (
         <Welcome handleClick={clickHandler} />

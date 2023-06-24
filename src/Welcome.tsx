@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function Welcome(props) {
+export default function Welcome({ handleClick }) {
   const [categoryDiff, setCategoryDiff] = useState({
     category: '',
     difficulty: '',
@@ -16,7 +16,7 @@ export default function Welcome(props) {
   let fetchURL = `https://opentdb.com/api.php?amount=5&category=${categoryDiff.category}&difficulty=${categoryDiff.difficulty}&type=multiple`;
 
   const getURL = () => {
-    return props.handleClick(fetchURL);
+    return handleClick(fetchURL);
   };
 
   return (
