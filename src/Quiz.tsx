@@ -51,7 +51,7 @@ export default function Quiz(props): JSX.Element {
     <div className="container row flex-column bg-layout justify-space-around">
       {questionAnswersSet}
       {result.length === 0 ? (
-        <button onClick={checkResults} className="check-btn">
+        <button onClick={checkResults} className="start-btn">
           Check your answers!
         </button>
       ) : (

@@ -1,0 +1,20 @@
+.container-child {
+  h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  .answer {
+    border: $base-border-thickness/2 solid black;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    border-radius: $base-border-radius;
+    font-size: $font-size-sm;
+    background-color: $color-answer-btn;
+    display: inline-block;
+    margin: 0.5rem 0.5rem 0 0;
+    cursor: pointer;
+  }
+
+  .selected-answer {
+    background-color: $color-selected-answer-btn;
+  }
+}

@@ -54,7 +54,7 @@ export default function QuestionsAnswers(props) {
 
   return (
     <div className="container-child">
-      <h2 className="question">{ask}</h2>
+      <h2>{ask}</h2>
       <div
         onClick={selectAnswer}
         id={isSelectedState[0].id}
