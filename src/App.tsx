@@ -16,13 +16,11 @@ export default function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <React.Fragment>
-        {isStarted ? (
-          <Quiz data={urlFetch} handleClick={clickHandler} />
-        ) : (
-          <Welcome handleClick={clickHandler} />
-        )}
-      </React.Fragment>
+      {isStarted ? (
+        <Quiz data={urlFetch} handleClick={clickHandler} />
+      ) : (
+        <Welcome handleClick={clickHandler} />
+      )}
     </QueryClientProvider>
   );
 }

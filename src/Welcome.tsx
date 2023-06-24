@@ -31,7 +31,7 @@ export default function Welcome(props) {
           className="select"
           onChange={(e) => setConfiguration(e)}
         >
-          <option value="any">Any Category</option>
+          <option value="any">Choose your category</option>
           <option value="9">General Knowledge</option>
           <option value="10">Entertainment: Books</option>
           <option value="11">Entertainment: Film</option>
@@ -59,12 +59,13 @@ export default function Welcome(props) {
             Entertainment: Cartoon &amp; Animations
           </option>{' '}
         </select>
+
         <select
           name="difficulty"
           className="select"
           onChange={(e) => setConfiguration(e)}
         >
-          <option value="any">Any Difficulty</option>
+          <option value="any">Choose difficulty</option>
           <option value="easy">Easy</option>
           <option value="medium">Medium</option>
           <option value="hard">Hard</option>

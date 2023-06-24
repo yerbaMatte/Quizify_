@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import QuestionsAnswers from './QuestionsAnswers';
-import { formatData, fetchAxios } from './helperFunctions/helperFunctions';
+import { getQuizData } from './services/getQuizData';
+import { formatStrings } from './services/formatStrings';
 
 export default function Quiz(props): JSX.Element {
   let quiz = [];
   const [restartApp, setRestartApp] = useState(false);
 
   const { data, isSuccess } = useQuery('quizData', () =>
-    fetchAxios(props.data)
+    getQuizData(props.data)
   );
 
   if (isSuccess) {
-    quiz = formatData(data);
+    quiz = formatStrings(data);
   }
 
   const answers = {};

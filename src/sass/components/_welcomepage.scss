@@ -5,7 +5,7 @@
     margin: $base-margin;
   }
   p {
-    font-size: $font-size-lg * 0.7;
+    font-size: $font-size-lg * 0.8;
     text-transform: uppercase;
     letter-spacing: $base-letter-spacing;
     text-align: center;
@@ -25,5 +25,6 @@
     border-radius: $base-border-radius;
     margin: $base-margin;
     cursor: pointer;
+    -webkit-appearance: none;
   }
 }

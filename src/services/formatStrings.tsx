@@ -1,6 +1,5 @@
-import axios from 'axios';
-
-export const formatData = (data) => {
+export const formatStrings = (data) => {
+  // convert html entities
   function unEscape(htmlStr) {
     htmlStr = htmlStr.replace(/&lt;/g, '<');
     htmlStr = htmlStr.replace(/&gt;/g, '>');
@@ -25,10 +24,4 @@ export const formatData = (data) => {
   });
 
   return results;
-};
-
-export const fetchAxios = async (data) => {
-  const response = await axios.get(data);
-  const quizData = response.data;
-  return quizData;
 };
