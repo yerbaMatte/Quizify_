@@ -17,7 +17,7 @@ export const formatStrings = (data) => {
     const formatCorrect = unEscape(singleSet.correct_answer);
 
     return {
-      ask: [unEscape(singleSet.question)],
+      ask: unEscape(singleSet.question),
       wrongAnswers: formatBadAnswers,
       correctAnswer: formatCorrect,
     };

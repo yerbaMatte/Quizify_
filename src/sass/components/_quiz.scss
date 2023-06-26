@@ -14,7 +14,15 @@
     cursor: pointer;
   }
 
-  .selected-answer {
+  .selected {
     background-color: $color-selected-answer-btn;
+  }
+
+  .correct {
+    background-color: $color-correct-answer-btn;
+  }
+
+  .wrong {
+    background-color: $color-wrong-answer-btn;
   }
 }
