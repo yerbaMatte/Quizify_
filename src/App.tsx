@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { QueryClient, QueryClientProvider } from 'react-query';
 import Welcome from './Welcome';
+import { getQuizData } from './services/getQuizData';
+import { useQuery } from 'react-query';
 import Quiz from './Quiz';
-
-const queryClient = new QueryClient();
 
 export default function App() {
   const [urlFetch, setUrlFetch] = useState('');
@@ -12,13 +11,17 @@ export default function App() {
     setUrlFetch(data);
   }
 
-  return (
-    <QueryClientProvider client={queryClient}>
-      {urlFetch ? (
-        <Quiz data={urlFetch} handleClick={clickHandler} />
-      ) : (
-        <Welcome handleClick={clickHandler} />
-      )}
-    </QueryClientProvider>
+  const { data, isSuccess } = useQuery(
+    ['quizData', urlFetch],
+    () => getQuizData(urlFetch),
+    {
+      enabled: !!urlFetch, // Enable or disable the query based on the value of urlFetch
+    }
+  );
+
+  return !isSuccess ? (
+    <Welcome handleClick={clickHandler} />
+  ) : (
+    <Quiz data={data} handleClick={clickHandler} />
   );
 }
