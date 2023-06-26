@@ -15,7 +15,7 @@ export default function QuestionsAnswers({ data, checkButton }) {
     setSelectedAnswer(selectedOption);
     setIsValid(selectedOption === correctAnswer);
   };
-
+  //
   const isCorrect = (answer) =>
     answer === correctAnswer ? 'correct' : 'wrong';
 
