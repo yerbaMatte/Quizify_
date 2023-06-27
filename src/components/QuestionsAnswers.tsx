@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
 
 export default function QuestionsAnswers(props) {
-  const { ask, wrongAnswers, correctAnswer } = props.data;
+  const { question, wrongAnswers, correctAnswer } = props.data;
   const { result } = props;
 
   // Get array of mixed answers - strings
@@ -53,8 +53,8 @@ export default function QuestionsAnswers(props) {
   let selectedStyle = 'answer selected-answer';
 
   return (
-    <div className="container-child">
-      <h2>{ask}</h2>
+    <div className='container-child'>
+      <h2>{question}</h2>
       <div
         onClick={selectAnswer}
         id={isSelectedState[0].id}

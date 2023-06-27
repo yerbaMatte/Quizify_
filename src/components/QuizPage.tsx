@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import QuestionsAnswers from './QuestionsAnswers';
 import { formatStrings } from '../services/formatStrings';
+import { decodeJsonEntities } from '../services/decodeData';
 
 export default function QuizPage({ data }): JSX.Element {
   let quiz = [];
 
-  quiz = formatStrings(data);
+  quiz = formatStrings(decodeJsonEntities(data.results));
   console.log(quiz);
 
   const answers = {};
