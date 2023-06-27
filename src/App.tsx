@@ -1,24 +1,33 @@
 import React, { useState } from 'react';
-import { QueryClient, QueryClientProvider } from 'react-query';
-import Welcome from './Welcome';
-import Quiz from './Quiz';
-
-const queryClient = new QueryClient();
+import { useQuery } from 'react-query';
+import StartPage from './components/StartPage';
+import QuizPage from './components/QuizPage';
+import { getQuizData } from './services/getQuizData';
 
 export default function App() {
+  // URL for the HTTP request from <StartPage />
   const [urlFetch, setUrlFetch] = useState('');
 
   function clickHandler(data) {
     setUrlFetch(data);
   }
 
+  // when url is defined, fetch data
+  const { data, isSuccess } = useQuery(
+    'quizData',
+    () => getQuizData(urlFetch),
+    //query config
+    { enabled: urlFetch !== '', refetchOnWindowFocus: false }
+  );
+  // refetchOnWindowFocus: false <---- WOW!
+
   return (
-    <QueryClientProvider client={queryClient}>
-      {urlFetch ? (
-        <Quiz data={urlFetch} handleClick={clickHandler} />
+    <>
+      {isSuccess ? (
+        <QuizPage data={data} />
       ) : (
-        <Welcome handleClick={clickHandler} />
+        <StartPage handleClick={clickHandler} />
       )}
-    </QueryClientProvider>
+    </>
   );
 }

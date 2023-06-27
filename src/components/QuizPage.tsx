@@ -1,19 +1,12 @@
 import React, { useState } from 'react';
-import { useQuery } from 'react-query';
 import QuestionsAnswers from './QuestionsAnswers';
-import { getQuizData } from './services/getQuizData';
-import { formatStrings } from './services/formatStrings';
+import { formatStrings } from '../services/formatStrings';
 
-export default function Quiz(props): JSX.Element {
+export default function QuizPage({ data }): JSX.Element {
   let quiz = [];
 
-  const { data, isSuccess } = useQuery('quizData', () =>
-    getQuizData(props.data)
-  );
-
-  if (isSuccess) {
-    quiz = formatStrings(data);
-  }
+  quiz = formatStrings(data);
+  console.log(quiz);
 
   const answers = {};
   const [result, setResult] = useState('');
@@ -32,10 +25,6 @@ export default function Quiz(props): JSX.Element {
     }
   }
 
-  const getNewQuiz = () => {
-    props.handleClick();
-  };
-
   const questionAnswersSet = quiz.map((_, ind) => (
     <QuestionsAnswers
       data={quiz[ind]}
@@ -46,23 +35,19 @@ export default function Quiz(props): JSX.Element {
     />
   ));
 
-  return isSuccess ? (
-    <div className="container row flex-column bg-layout justify-space-around">
+  return (
+    <div className='container row flex-column bg-layout justify-space-around'>
       {questionAnswersSet}
       {result.length === 0 ? (
-        <button onClick={checkResults} className="start-btn">
+        <button onClick={checkResults} className='start-btn'>
           Check your answers!
         </button>
       ) : (
-        <div className="btn-container">
-          <h2 className="score">Your total score is {result}</h2>
-          <button className="check-btn" onClick={getNewQuiz}>
-            GET NEW QUIZ
-          </button>
+        <div className='btn-container'>
+          <h2 className='score'>Your total score is {result}</h2>
+          <button className='check-btn'>GET NEW QUIZ</button>
         </div>
       )}
     </div>
-  ) : (
-    <p>Loading...</p>
   );
 }
