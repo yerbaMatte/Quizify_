@@ -1,4 +1,4 @@
-export const formatStrings = (data) => {
+export const storeQuizData = (data) => {
   const results = data.map((singleSet) => {
     const { question, correct_answer, incorrect_answers } = singleSet;
 

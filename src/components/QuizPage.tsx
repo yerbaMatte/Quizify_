@@ -1,54 +1,32 @@
 import React, { useState } from 'react';
-import QuestionsAnswers from './QuestionsAnswers';
-import { formatStrings } from '../services/formatStrings';
-import { decodeJsonEntities } from '../services/decodeData';
+import QuestionAndAnswers from './QuestionAndAnswers';
 
-export default function QuizPage({ data }): JSX.Element {
-  let quiz = [];
+export default function QuizPage({ quizData }): JSX.Element {
+  const [result, setResult] = useState(new Map());
+  const [checkAnswers, setCheckAnswers] = useState(false);
 
-  quiz = formatStrings(decodeJsonEntities(data.results));
-  console.log(quiz);
-
-  const answers = {};
-  const [result, setResult] = useState('');
-
-  const updateAnswer = (questionId, answer) => {
-    answers[questionId] = answer;
+  const checkAnswerClick = () => {
+    if ([...result.values()].length === 5) setCheckAnswers(true);
   };
 
-  function checkResults() {
-    let numberOfTrue = Object.values(answers).filter((x) => x === true).length;
-
-    if (Object.keys(answers).length === 5) {
-      setResult(`${numberOfTrue}/5 correct answers`);
-    } else {
-      console.log('Select all answers');
-    }
-  }
-
-  const questionAnswersSet = quiz.map((_, ind) => (
-    <QuestionsAnswers
-      data={quiz[ind]}
-      questionID={ind}
-      updateAnswer={updateAnswer}
-      result={result}
-      key={ind}
-    />
-  ));
+  console.log();
 
   return (
     <div className='container row flex-column bg-layout justify-space-around'>
-      {questionAnswersSet}
-      {result.length === 0 ? (
-        <button onClick={checkResults} className='start-btn'>
+      {quizData.map((_, ind) => (
+        <QuestionAndAnswers
+          data={quizData[ind]}
+          key={ind}
+          id={ind}
+          setResult={setResult}
+          checkAnswers={checkAnswers}
+        />
+      ))}
+      {
+        <button className='start-btn' onClick={checkAnswerClick}>
           Check your answers!
         </button>
-      ) : (
-        <div className='btn-container'>
-          <h2 className='score'>Your total score is {result}</h2>
-          <button className='check-btn'>GET NEW QUIZ</button>
-        </div>
-      )}
+      }
     </div>
   );
 }

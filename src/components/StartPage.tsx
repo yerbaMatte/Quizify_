@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
 
-export default function StartPage({ handleClick }) {
+export default function StartPage({ getQuizOptions }) {
   // Send config to <App/> Component
-  const [categoryDiff, setCategoryDiff] = useState({
+  const [quizOptions, setQuizOptions] = useState({
     category: '',
     difficulty: '',
   });
 
   const setConfiguration = (e) => {
-    setCategoryDiff((prev) => ({
+    setQuizOptions((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
     }));
   };
 
-  let fetchURL = `https://opentdb.com/api.php?amount=5&category=${categoryDiff.category}&difficulty=${categoryDiff.difficulty}&type=multiple`;
+  let fetchURL = `https://opentdb.com/api.php?amount=5&category=${quizOptions.category}&difficulty=${quizOptions.difficulty}&type=multiple`;
 
   const getURL = () => {
-    return handleClick(fetchURL);
+    return getQuizOptions(fetchURL);
   };
   //
 

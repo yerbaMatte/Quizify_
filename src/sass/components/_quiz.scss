@@ -17,4 +17,12 @@
   .selected-answer {
     background-color: $color-selected-answer-btn;
   }
+
+  .correct-answer {
+    background-color: $color-correct-answer-btn;
+  }
+
+  .wrong-answer {
+    background-color: $color-wrong-answer-btn;
+  }
 }
