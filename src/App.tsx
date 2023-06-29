@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
-import StartPage from './components/StartPage';
-import QuizPage from './components/QuizPage';
+import StartPage from './components/StartPage/StartPage';
+import QuizPage from './components/QuizPage/QuizPage';
 import { getQuizData } from './services/getQuizData';
 import { storeQuizData } from './services/storeQuizData';
 import { decodeJsonEntities } from './services/decodeData';

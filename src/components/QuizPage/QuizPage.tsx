@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import QuestionAndAnswers from './QuestionAndAnswers';
+import QuestionAndAnswers from '../QuestionAndAnswers';
 
 export default function QuizPage({ quizData }): JSX.Element {
   const [result, setResult] = useState(new Map());
@@ -12,7 +12,7 @@ export default function QuizPage({ quizData }): JSX.Element {
   console.log();
 
   return (
-    <div className='container row flex-column bg-layout justify-space-around'>
+    <div className="container row flex-column bg-layout justify-space-around">
       {quizData.map((_, ind) => (
         <QuestionAndAnswers
           data={quizData[ind]}
@@ -23,7 +23,7 @@ export default function QuizPage({ quizData }): JSX.Element {
         />
       ))}
       {
-        <button className='start-btn' onClick={checkAnswerClick}>
+        <button className="start-btn" onClick={checkAnswerClick}>
           Check your answers!
         </button>
       }
