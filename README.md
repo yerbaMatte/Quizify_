@@ -12,11 +12,11 @@ Quizify is a dynamic quiz application built with React, utilizing TypeScript and
 
 To run the project locally, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/yerbaMatte/react-quiz-v3.git`
-2. Navigate to the project directory: `cd react-quiz-v3`
-3. Install dependencies: `npm install`
-4. Start the development server: `npm start`
-5. Open your browser and visit `http://localhost:3000` to access the application.
+Clone the repository: git clone https://github.com/yerbaMatte/Quizify.git
+Navigate to the project directory: cd Quizify
+Install dependencies: npm install
+Start the development server: npm start
+Open your browser and visit http://localhost:3000 to access the application.
 
 ## Dependencies
 
