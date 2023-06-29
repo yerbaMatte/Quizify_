@@ -1,6 +1,6 @@
 # Quizify
 
-Quizify is a dynamic quiz application built with React, allowing users to test their knowledge by answering questions across various categories and difficulty levels.
+Quizify is a dynamic quiz application built with React, utilizing TypeScript and SASS for enhanced development and styling. The application also incorporates testing using the vitest library to ensure reliable functionality. Quizify allowing users to test their knowledge by answering questions across various categories and difficulty levels. 
 
 ## Features
 
