@@ -1,4 +1,4 @@
-@mixin btn($color: tomato) {
+@mixin btn($color: $color-start-btn) {
   border: none;
   padding: 1rem 5rem 1rem 5rem;
   border-radius: $base-border-radius;
@@ -9,15 +9,12 @@
 }
 
 .start-btn {
-  @include btn(tomato);
+  @include btn($color-start-btn);
+  transition-duration: 1s;
   &:hover {
-    background-color: lighten(tomato, 10);
+    background-color: lighten($color-start-btn, 10);
     color: white;
-    //text-shadow: black 1px 1px 2px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
     transform: scale(0.95);
-    &::after {
-      transform: none;
-    }
   }
 }

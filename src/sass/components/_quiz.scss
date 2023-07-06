@@ -12,6 +12,11 @@
     display: inline-block;
     margin: 0.5rem 0.5rem 0 0;
     cursor: pointer;
+    transition-duration: 50ms;
+    transition: background-color 1s;
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 
   .selected-answer {

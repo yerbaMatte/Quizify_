@@ -26,5 +26,9 @@
     margin: $base-margin;
     cursor: pointer;
     -webkit-appearance: none;
+    transition-duration: 1s;
+    &:hover {
+      transform: scale(1.02);
+    }
   }
 }

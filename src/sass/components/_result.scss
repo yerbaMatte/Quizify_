@@ -1,0 +1,6 @@
+.result {
+  @include btn($color-start-btn);
+  p {
+    letter-spacing: 4px;
+  }
+}
