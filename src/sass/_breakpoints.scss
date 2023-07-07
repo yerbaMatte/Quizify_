@@ -1,5 +1,22 @@
-@mixin p {
-  @media (max-width: 599px) {
-    @content;
+$breakpoints: (
+  'small-phone': '(max-width: 320px)',
+  'phone': '(max-width: 360px)',
+  'large-phone': '(max-width: 400px)',
+  'xlarge-phone': '(max-width: 480px)',
+  'small-tablet': '(max-width: 600px)',
+  'tablet': '(min-width: 768px)',
+  'large-tablet': '(max-width: 1024px)',
+  'laptop': '(max-width: 1280px)',
+  'large-laptop': '(max-width: 1366px)',
+  'ultra': '(max-width: 1600px)',
+);
+
+@mixin rwd($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media #{(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, not found breakpoint called `#{$breakpoint}`!";
   }
 }

@@ -6,6 +6,23 @@
   color: #fff;
   cursor: pointer;
   background-color: $color;
+  @include rwd(xlarge-phone) {
+    font-size: $font-size-lg;
+    padding: 0.8rem;
+  }
+  @include rwd(large-phone) {
+    font-size: $font-size-lg * 0.8;
+    padding: 0.5rem;
+  }
+  @include rwd(phone) {
+    font-size: $font-size-sm;
+    padding: 0.5rem;
+  }
+  @include rwd(small-phone) {
+    padding: 0.8rem;
+    font-size: $font-size-lg * 0.6;
+    margin: 1rem;
+  }
 }
 
 .start-btn {

@@ -3,12 +3,25 @@
     font-size: $font-size-xxl * 1.25;
     font-weight: 300;
     margin: $base-margin;
+
+    @include rwd(phone) {
+      font-size: $font-size-xl * 2;
+    }
+    @include rwd(small-phone) {
+      font-size: $font-size-xl * 0.8;
+    }
   }
   p {
     font-size: $font-size-lg * 0.8;
     text-transform: uppercase;
     letter-spacing: $base-letter-spacing;
     text-align: center;
+    @include rwd(small-phone) {
+      letter-spacing: $base-letter-spacing * 0.5;
+      font-size: $font-size-sm;
+      margin-left: -1.6rem;
+      margin-right: -1.6rem;
+    }
   }
   .title {
     margin: $base-margin;
@@ -16,9 +29,15 @@
     h1 {
       text-align: center;
     }
+    @include rwd(small-phone) {
+      margin-top: 0.2rem;
+    }
   }
   .options {
     margin-bottom: 6rem;
+    @include rwd(small-phone) {
+      margin-bottom: 1rem;
+    }
   }
   select {
     padding: 1rem;
@@ -29,6 +48,10 @@
     transition-duration: 1s;
     &:hover {
       transform: scale(1.02);
+    }
+    @include rwd(small-phone) {
+      padding: 0.3rem 0.3rem;
+      margin: $base-margin * 0.5;
     }
   }
 }
